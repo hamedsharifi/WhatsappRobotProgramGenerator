@@ -27,7 +27,7 @@ public class Utility {
     public static Date getRandomEndTime() {
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.HOUR_OF_DAY, 21);
-        cal.set(Calendar.MINUTE, generateRandom(15, 30)); //21:15 to 21:30
+        cal.set(Calendar.MINUTE, generateRandom(0, 30)); //21:15 to 21:30
         return cal.getTime();
     }
 

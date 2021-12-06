@@ -21,5 +21,6 @@ public class Date {
     private Timestamp longSleepTimeStart;
     private Timestamp longSleepTimeEnd;
     private int sentMessageCount;
+    private Timestamp lastMessageSentTime;
 
 }

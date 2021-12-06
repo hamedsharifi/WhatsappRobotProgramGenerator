@@ -9,7 +9,7 @@ spring:
           use_jdbc_metadata_defaults: true
 
   datasource:
-    url: jdbc:postgresql://127.0.0.1:5432/dates
+    url: jdbc:postgresql://127.0.0.1:5432/whatsapp_robot
     username: postgres
     password: 1234
 
