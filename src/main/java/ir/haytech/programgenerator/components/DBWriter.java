@@ -46,17 +46,20 @@ public class DBWriter implements CommandLineRunner {
                     date.setPermittedMessageCount(properValue);
                 }
                 date.setDate(new Timestamp(Utility.addDaysToThisDate(i - 1, new java.util.Date()).getTime()));
+                date.setStartTime(new Timestamp(Utility.addDaysToThisDateWithoutChangeHour(i - 1, Utility.getRandomStartTime()).getTime()));
+                date.setEndTime(new Timestamp(Utility.addDaysToThisDateWithoutChangeHour(i - 1, Utility.getRandomEndTime()).getTime()));
+                date.setLongSleepTimeStart(new Timestamp(Utility.addDaysToThisDateWithoutChangeHour(i - 1, Utility.getRandomLongSleepStartTime()).getTime()));
+                date.setLongSleepTimeEnd(new Timestamp(Utility.addDaysToThisDateWithoutChangeHour(i - 1, Utility.getRandomLongSleepEndTime()).getTime()));
             } else {
-                int properValue = Utility.generateRandom(Constants.DAY_10_COUNT, Constants.DAY_AFTER_10_COUNT);
-                date.setPermittedMessageCount(properValue);
-                date.setDate(new Timestamp(Utility.addDaysToThisDate(i , lastDayInDatabase.getDate()).getTime()));
+                date.setDate(new Timestamp(Utility.addDaysToThisDate(i, lastDayInDatabase.getDate()).getTime()));
+                date.setStartTime(new Timestamp(Utility.addDaysToThisDateWithoutChangeHour(i, Utility.getRandomStartTime()).getTime()));
+                date.setEndTime(new Timestamp(Utility.addDaysToThisDateWithoutChangeHour(i, Utility.getRandomEndTime()).getTime()));
+                date.setLongSleepTimeStart(new Timestamp(Utility.addDaysToThisDateWithoutChangeHour(i, Utility.getRandomLongSleepStartTime()).getTime()));
+                date.setLongSleepTimeEnd(new Timestamp(Utility.addDaysToThisDateWithoutChangeHour(i, Utility.getRandomLongSleepEndTime()).getTime()));
             }
+            int properValue = Utility.generateRandom(Constants.DAY_10_COUNT, Constants.DAY_AFTER_10_COUNT);
+            date.setPermittedMessageCount(properValue);
 
-            date.setStartTime(new Timestamp(Utility.getRandomStartTime().getTime()));
-            date.setEndTime(new Timestamp(Utility.getRandomEndTime().getTime()));
-
-            date.setLongSleepTimeStart(new Timestamp(Utility.getRandomLongSleepStartTime().getTime()));
-            date.setLongSleepTimeEnd(new Timestamp(Utility.getRandomLongSleepEndTime().getTime()));
             dateRepository.save(date);
         }
     }

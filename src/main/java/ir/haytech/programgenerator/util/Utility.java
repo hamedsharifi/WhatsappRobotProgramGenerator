@@ -54,4 +54,10 @@ public class Utility {
         cal.set(Calendar.MILLISECOND, 0);
         return DateUtils.addDays(cal.getTime(), daysToAdd);
     }
+
+    public static Date addDaysToThisDateWithoutChangeHour(int daysToAdd, Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return DateUtils.addDays(cal.getTime(), daysToAdd);
+    }
 }
